@@ -1,0 +1,33 @@
+{
+  "name": "marbling-experiment",
+  "version": "1.0.0",
+  "description": "An early experiment toward building a marbling simulation",
+  "main": "dist/index.js",
+  "private": "true",
+  "scripts": {
+    "build": "rollup -c",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amandaghassaei/MarblingExperiment.git"
+  },
+  "author": "Amanda Ghassaei",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/amandaghassaei/MarblingExperiment/issues"
+  },
+  "homepage": "https://github.com/amandaghassaei/MarblingExperiment#readme",
+  "dependencies": {
+    "gpu-io": "^0.1.7"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^23.0.2",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-terser": "^0.1.0",
+    "@rollup/plugin-typescript": "^9.0.2",
+    "rollup": "^3.3.0",
+    "tslib": "^2.4.1",
+    "typescript": "^4.8.4"
+  }
+}
