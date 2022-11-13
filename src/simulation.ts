@@ -356,11 +356,10 @@ const advectParticles = new GPUProgram(composer, {
 const renderMaterial = new GPUProgram(composer, {
 	name: 'renderMaterial',
 	fragmentShader: `
-	#define background vec3(0.98, 0.922, 0.843)
-	#define material1 vec3(0.925, 0, 0.55)
-	#define material2 vec3(0.0, 0.70, 0.63)
-	#define material3 vec3(0.52, 0.81, 0.70)
-	#define material4 vec3(1.0, 0.7, 0.07)
+	#define BACKGROUND vec3(0.98, 0.922, 0.843)
+	#define COLOR1 vec3(0.925, 0, 0.55)
+	#define COLOR2 vec3(0.0, 0.70, 0.63)
+	#define COLOR3 vec3(0.52, 0.81, 0.70)
 	#define NUM_COLORS 3.0
 
 	in vec2 v_uv;
@@ -371,25 +370,13 @@ const renderMaterial = new GPUProgram(composer, {
 
 	void main() {
 		float val = clamp(texture(u_material, v_uv).x, 0.0, 1.0);
-
-		vec3 color = background;
-		if (val <= 1.0 / NUM_COLORS) {
-			val *= NUM_COLORS;
-			color = background * (1.0 - val) + material1 * val;
-		} else if (val <= 2.0 / NUM_COLORS) {
-			val -= 1.0 / NUM_COLORS;
-			val *= NUM_COLORS;
-			color = material1 * (1.0 - val) + material2 * val;
-		} else if (val <= 3.0 / NUM_COLORS) {
-			val -= 2.0 / NUM_COLORS;
-			val *= NUM_COLORS;
-			color = material2 * (1.0 - val) + material3 * val;
-		} else {
-			val -= 3.0 / NUM_COLORS;
-			val *= NUM_COLORS;
-			color = material3 * (1.0 - val) + material4 * val;
-		}
-
+		float mix1 = step(val, 1.0 / NUM_COLORS);
+		float mix2 = step(val, 2.0 / NUM_COLORS) * (1.0 - mix1);
+		float mix3 = (1.0 - mix1) * (1.0 - mix2);
+		vec3 color =
+			mix(BACKGROUND, COLOR1, val * NUM_COLORS) * mix1 +
+			mix(COLOR1, COLOR2, val * NUM_COLORS - 1.0) * mix2 +
+			mix(COLOR2, COLOR3, val * NUM_COLORS - 2.0) * mix3;
 		out_color = vec4(color, 1);
 	}`,
 });
