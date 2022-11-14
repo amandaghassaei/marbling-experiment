@@ -470,6 +470,9 @@ export function onResize() {
 		ages[i] = Math.round(Math.random() * PARTICLE_LIFETIME);
 	}
 	particleAgeState.resize(NUM_PARTICLES, ages);
+
+	// Render something to the screen to start.
+	stepRender();
 }
 
 export function stepTouch(current: [number, number], last?: [number, number]) {
@@ -567,6 +570,11 @@ export function stepSimulation() {
 		input: [particlePositionState, velocityState, particleAgeState, particleInitialState],
 		output: particlePositionState,
 	});
+	
+	stepRender();
+}
+
+function stepRender() {
 	// Render material.
 	composer.step({
 		program: renderMaterial,

@@ -14,8 +14,27 @@ function resetTimer() {
 	pausedTimer = TIMER_MAX;
 	if (paused) {
 		paused = false;
+		console.log('START');
 		loop();
 	}
+}
+
+// Resize if needed.
+window.addEventListener('resize', onResize);
+onResize();
+
+// Animation loop.
+function loop() {
+	pausedTimer--;
+	// Bump up the damping toward the end of the timer.
+	PARAMS.VELOCITY_DECAY = pausedTimer < 150 ? 0.98 : 1;
+	paused = pausedTimer <= 0;
+	if (paused) {
+		console.log('PAUSE');
+		return;
+	}
+	window.requestAnimationFrame(loop);
+	stepSimulation();
 }
 
 // Touch events.
@@ -57,21 +76,3 @@ canvas.ontouchmove = (e) => {
     e.preventDefault();
 	e.stopPropagation();
 }
-
-// Resize if needed.
-window.addEventListener('resize', onResize);
-onResize();
-
-// Render loop.
-function loop() {
-	pausedTimer--;
-	// Bump up the damping toward the end of the timer.
-	PARAMS.VELOCITY_DECAY = pausedTimer < 150 ? 0.98 : 1;
-	paused = pausedTimer <= 0;
-	if (paused) {
-		return;
-	}
-	window.requestAnimationFrame(loop);
-	stepSimulation();
-}
-stepSimulation(); // Render something to the screen to start.
