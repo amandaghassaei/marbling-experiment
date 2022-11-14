@@ -6,7 +6,7 @@ An early experiment toward building a marbling simulation
 
 This application will run any device/browser supporting WebGL2 *or* WebGL1.
 
-The simulation doesn't start running until a pointerdown/pointermove event is detected on the canvas.  After 15 seconds without interaction, the simulation stops on its own until another pointerdown/pointermove event is detected.
+The simulation doesn't start running until a pointerdown/pointermove event is detected on the canvas.  After 15 seconds without interaction, the simulation pauses until another pointerdown/pointermove event is detected on the canvas.
 
 
 ## Use
