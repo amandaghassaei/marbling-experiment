@@ -52,6 +52,7 @@ canvas.addEventListener('pointerup', onPointerStop);
 canvas.addEventListener('pointerout', onPointerStop);
 canvas.addEventListener('pointercancel', onPointerStop);
 // Stop propagation of touch events.
+// This prevents page scrolling in case of embedded iframe.
 canvas.ontouchmove = (e) => {
     e.preventDefault();
 	e.stopPropagation();
