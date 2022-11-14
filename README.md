@@ -43,6 +43,6 @@ This work is licensed under an [MIT License](./LICENSE).  Note that it depends o
   - [changedpi](https://www.npmjs.com/package/changedpi) - MIT license, no dependencies.
   - [file-saver](https://www.npmjs.com/package/file-saver) - MIT license, no dependencies.
 
-  ## Testing
+## Testing
 
-  This application is built on top of [gpu-io](https://github.com/amandaghassaei/gpu-io), which has been [extensively tested in a variety of device/browser combinations](https://github.com/amandaghassaei/gpu-io/tree/main/tests).  All functionality is supported by both WebGL2 and older browsers that only support WebGL1.
+This application is built on top of [gpu-io](https://github.com/amandaghassaei/gpu-io), which has been [extensively tested in a variety of device/browser combinations](https://github.com/amandaghassaei/gpu-io/tree/main/tests).  All functionality is supported by both WebGL2 and older browsers that only support WebGL1.
