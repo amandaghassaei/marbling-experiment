@@ -1,6 +1,6 @@
 # Marbling Experiment
 
-An early experiment toward building a marbling simulation.  This code was originally written in 2017 in the class [The Nature of Mathematical Modeling](https://fab.cba.mit.edu/classes/864.17/index.html).  I've recently refactored the code using [gpu-io](https://github.com/amandaghassaei/gpu-io) so that it can run on pretty much any platform/browser.  This demo is embedded in my [blog post about building a marbling simulation](https://blog.amandaghassaei.com/2022/10/25/digital-marbling/).
+An early experiment toward building a marbling simulation.  This code was originally written in 2017 in the class [The Nature of Mathematical Modeling](https://fab.cba.mit.edu/classes/864.17/index.html).  I've recently refactored the code using [gpu-io](https://github.com/amandaghassaei/gpu-io) so that it can run on pretty much any platform/browser.  This demo is embedded in my [blog post about digital marbling](https://blog.amandaghassaei.com/2022/10/25/digital-marbling/).
 
 ## Performance
 
