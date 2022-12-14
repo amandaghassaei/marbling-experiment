@@ -14,7 +14,16 @@ The simulation doesn't start running until a pointerdown/pointermove event is de
 To embed this simulation in a page with an iframe:
 ```html
 <!-- iframe can be any width and height -->
-<iframe style="width:100%;height:500px;border:none;background-color:#cccccc;" src="https://apps.amandaghassaei.com/marbling-experiment/"></iframe>
+<iframe style="width:800px;height:500px;border:none;background-color:#cccccc;" src="https://apps.amandaghassaei.com/marbling-experiment/"></iframe>
+```
+
+Embedding with a fixed aspect ratio on a responsive layout:
+```html
+<!-- 56.25% gives a 16:9 aspect ratio -->
+<div style="padding:56.25% 0 0 0;position:relative;">
+  <iframe src="https://apps.amandaghassaei.com/marbling-experiment/" style="position:absolute;top:0;left:0;width:100%;height:100%;background-color:#cccccc;" frameborder="0">
+  </iframe>
+</div>
 ```
 
 An example of embedding this page with an iframe is currently hosted at [apps.amandaghassaei.com/marbling-experiment/embed/](https://apps.amandaghassaei.com/marbling-experiment/embed/)
